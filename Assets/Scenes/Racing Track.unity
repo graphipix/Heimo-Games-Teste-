@@ -583,7 +583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4691463297491602, guid: 5d9edc29b447bc641b039c721457e42b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07498509
+      value: 0.188
       objectReference: {fileID: 0}
     - target: {fileID: 4691463297491602, guid: 5d9edc29b447bc641b039c721457e42b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -633,6 +633,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1853152799124830, guid: 5d9edc29b447bc641b039c721457e42b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 263964740}
+    - targetCorrespondingSourceObject: {fileID: 1853152799124830, guid: 5d9edc29b447bc641b039c721457e42b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 263964744}
   m_SourcePrefab: {fileID: 100100000, guid: 5d9edc29b447bc641b039c721457e42b, type: 3}
 --- !u!4 &263964738 stripped
 Transform:
@@ -692,6 +695,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &263964744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263964739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9648bcaec83933045a47d9a38903cc6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Airfoil: {fileID: 1832757075}
+  Bumper: {fileID: 1893761697}
+  Painting: {fileID: 0}
+  TireA: {fileID: 2055334372}
+  TireDefault: {fileID: 995224136}
+  CarData: {fileID: 11400000, guid: 87e8f66fb79cedf46857958cc182b541, type: 2}
+  material:
+  - {fileID: 2100000, guid: 2bdeecc1f36252347bb4b767714d8971, type: 2}
+  newcolor: 0
 --- !u!1 &299192421
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +743,7 @@ Transform:
   m_GameObject: {fileID: 299192421}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.405, y: 0.647, z: 0.103}
+  m_LocalPosition: {x: 0.405, y: 0.765, z: 0.103}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -809,6 +833,10 @@ MonoBehaviour:
   Painting: 0
   TireA: 0
   SelectedCar: 1
+  CarsData:
+  - {fileID: 11400000, guid: 87e8f66fb79cedf46857958cc182b541, type: 2}
+  Cars:
+  - {fileID: 263964738}
 --- !u!4 &364443290
 Transform:
   m_ObjectHideFlags: 0
@@ -818,7 +846,7 @@ Transform:
   m_GameObject: {fileID: 364443288}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 207.33, y: 0.8696566, z: 33.25}
+  m_LocalPosition: {x: 202.31, y: 0.8696566, z: 33.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6600,8 +6628,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.024048153, y: 0.92542386, z: -0.059593067, w: -0.37344503}
-  m_LocalPosition: {x: 210.4807, y: 2.0198584, z: 17.12593}
+  m_LocalRotation: {x: -0.024048148, y: 0.92542386, z: -0.05959305, w: -0.37344503}
+  m_LocalPosition: {x: 205.4607, y: 2.132873, z: 17.12593}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9145,8 +9173,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034371853}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.024048153, y: 0.92542386, z: -0.059593067, w: -0.37344503}
-  m_LocalPosition: {x: 3.2200012, y: 0.6000001, z: 3.3400002}
+  m_LocalRotation: {x: -0.024048148, y: 0.92542386, z: -0.05959305, w: -0.37344503}
+  m_LocalPosition: {x: 3.2200012, y: 0.6, z: 3.3400002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

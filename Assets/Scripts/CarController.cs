@@ -13,12 +13,10 @@ public class CarController : MonoBehaviour
     private void Start()
     {
         rgbd = GetComponent<Rigidbody>();
-        if (newcolor)
-        {
-            GetComponent<MeshRenderer>().material = material[1];
-        }
+        
         ComponentManager();
     }
+
     private void FixedUpdate()
     {
         rgbd.velocity = new Vector3(Input.GetAxis("Horizontal") * Force, 0, Input.GetAxis("Vertical") * Force);
@@ -65,9 +63,24 @@ public class CarController : MonoBehaviour
 
     private void ComponentManager() 
     {
+        #region Airfoil
+        if (!Airfoil.gameObject.activeInHierarchy && CarData.Airfoil) { Airfoil.gameObject.SetActive(true); }
+        #endregion
 
+        #region Bumber
+        if (!Bumper.gameObject.activeInHierarchy && CarData.Bumper) { Bumper.gameObject.SetActive(true); }
+        #endregion
 
+        #region TireA
+        if (!TireA.gameObject.activeInHierarchy && CarData.TireA) { TireA.gameObject.SetActive(true); TireDefault.gameObject.SetActive(false); }
+        #endregion
 
+        #region NewColor
+        if (newcolor)
+        {
+            GetComponent<MeshRenderer>().material = material[1];
+        }
+        #endregion
     }
     #endregion
 }

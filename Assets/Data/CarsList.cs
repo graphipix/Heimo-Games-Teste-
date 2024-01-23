@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="CarList")]
 public class CarsList : ScriptableObject
 {
-    [SerializeField] private bool Airfoil = default;
-    [SerializeField] private bool Bumper = default;
-    [SerializeField] private bool Painting = default;
-    [SerializeField] private bool TireA = default;
+    [SerializeField] internal bool Airfoil = default;
+    [SerializeField] internal bool Bumper = default;
+    [SerializeField] internal bool Painting = default;
+    [SerializeField] internal bool TireA = default;
 }
