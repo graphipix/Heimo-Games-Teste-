@@ -33,12 +33,12 @@ public class CarController : MonoBehaviour
     public int axis;
     private void WheelController()
     {
-        FrontLeftWheel.rotation = Quaternion.Euler(axis, 30 * Input.GetAxis("Horizontal"), transform.rotation.z);
-        FrontRightWheel.rotation = Quaternion.Euler(axis, 30 * Input.GetAxis("Horizontal"), transform.rotation.z);
-        BackLeftWheel.rotation = Quaternion.Euler(axis *-1, 30 * Input.GetAxis("Horizontal"), transform.rotation.z);
-        BackRightWheel.rotation = Quaternion.Euler(axis * -1, 30 * Input.GetAxis("Horizontal"), transform.rotation.z);
+        FrontLeftWheel.rotation = Quaternion.Euler(axis, 45 * Input.GetAxis("Horizontal"), transform.rotation.z);
+        FrontRightWheel.rotation = Quaternion.Euler(axis, 45 * Input.GetAxis("Horizontal"), transform.rotation.z);
+        BackLeftWheel.rotation = Quaternion.Euler(axis *-1, 45 * Input.GetAxis("Horizontal"), transform.rotation.z);
+        BackRightWheel.rotation = Quaternion.Euler(axis * -1, 45 * Input.GetAxis("Horizontal"), transform.rotation.z);
 
-        transform.rotation = Quaternion.Euler(Input.GetAxis("Horizontal"),transform.rotation.y,transform.rotation.z);
+        transform.rotation = Quaternion.Euler(transform.rotation.x, Input.GetAxis("Horizontal") *30, transform.rotation.z);
 
         //Wheel Axis Rotation
         if (Input.GetAxis("Vertical") != 0)
