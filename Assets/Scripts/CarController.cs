@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
@@ -8,7 +9,6 @@ public class CarController : MonoBehaviour
     [SerializeField] [Range(10, 100)] int Force = default;
 
     public Material[] material = default;
-    public bool newcolor;
 
     private void Start()
     {
@@ -49,7 +49,7 @@ public class CarController : MonoBehaviour
         BackLeftWheel.rotation = Quaternion.Euler(axis *-1, 45 * Input.GetAxis("Horizontal"), transform.rotation.z);
         BackRightWheel.rotation = Quaternion.Euler(axis * -1, 45 * Input.GetAxis("Horizontal"), transform.rotation.z);
 
-        transform.rotation = Quaternion.Euler(transform.rotation.x, Input.GetAxis("Horizontal") *30, transform.rotation.z);
+        transform.rotation = Quaternion.Euler(transform.rotation.x, Input.GetAxis("Horizontal") * 30, transform.rotation.z);
 
         //Wheel Axis Rotation
         if (Input.GetAxis("Vertical") != 0)
@@ -76,11 +76,16 @@ public class CarController : MonoBehaviour
         #endregion
 
         #region NewColor
-        if (newcolor)
+        if (CarData.Painting)
         {
             GetComponent<MeshRenderer>().material = material[1];
         }
         #endregion
     }
     #endregion
+
+    public void GoToStore()
+    {
+        SceneManager.LoadScene("Store");
+    }
 }

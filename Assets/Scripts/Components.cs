@@ -17,27 +17,42 @@ public class Components : MonoBehaviour
     public Material[] material = default;
     public bool newcolor;
 
-    private void ChangeComponents() 
+    private void ChangeComponents()
     {
         #region Airfoil
         if (!Airfoil.gameObject.activeInHierarchy && CarData.Airfoil) { Airfoil.gameObject.SetActive(true); }
+        if (!CarData.Airfoil)
+        {
+            Airfoil.gameObject.SetActive(false);
+        }
 
         #endregion
 
         #region Bumber
         if (!Bumper.gameObject.activeInHierarchy && CarData.Bumper) { Bumper.gameObject.SetActive(true); }
-
+        if (!CarData.Bumper)
+        {
+            Bumper.gameObject.SetActive(false);
+        }
         #endregion
 
         #region TireA
         if (!TireA.gameObject.activeInHierarchy && CarData.TireA) { TireA.gameObject.SetActive(true); TireDefault.gameObject.SetActive(false); }
-
+        if (!CarData.TireA)
+        {
+            TireA.gameObject.SetActive(false);
+            TireDefault.gameObject.SetActive(true);
+        }
         #endregion
 
         #region NewColor
-        if (newcolor)
+        if (CarData.Painting)
         {
             GetComponent<MeshRenderer>().material = material[1];
+        }
+        else
+        {
+            GetComponent<MeshRenderer>().material = material[0];
         }
         #endregion
     }
