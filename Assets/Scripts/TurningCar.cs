@@ -18,6 +18,11 @@ public class TurningCar : MonoBehaviour
     public float MaxTurnAngle = 15;
     float CurrentTurnAngle = 0f;
 
+    private void Start()
+    {
+        ComponentManager();
+    }
+
     #region Car Components
     [Space]
     [Header("[ Car Data ] ")]
@@ -79,7 +84,7 @@ public class TurningCar : MonoBehaviour
         #region NewColor
         if (CarData.Painting)
         {
-            GetComponent<MeshRenderer>().material = material[1];
+            transform.GetChild(0).GetComponent<MeshRenderer>().material = material[1];
         }
         #endregion
     }
