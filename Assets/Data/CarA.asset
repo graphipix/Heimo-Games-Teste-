@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f47160ba7d61e4a9df46b8cc563008, type: 3}
   m_Name: CarA
   m_EditorClassIdentifier: 
-  Airfoil: 1
+  Airfoil: 0
   Bumper: 0
   Painting: 0
   TireA: 0
