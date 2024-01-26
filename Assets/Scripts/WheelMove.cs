@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class WheelMove : MonoBehaviour
 {
+    [SerializeField] private WheelCollider ColRelated = default;
+
     private void FixedUpdate()
     {
-        WheelController();
+        RotateWheel(ColRelated);
     }
 
-    private int axis;
-    private void WheelController()
+    private void RotateWheel(WheelCollider col) 
     {
-        gameObject.transform.rotation = Quaternion.Euler(axis, 45 * Input.GetAxis("Horizontal"), transform.rotation.z);
+        Vector3 position;
+        Quaternion rotation;
 
-        //transform.rotation = Quaternion.Euler(transform.rotation.x, Input.GetAxis("Horizontal") * 30, transform.rotation.z);
+        col.GetWorldPose(out position, out rotation);
 
-        //Wheel Axis Rotation
-        if (Input.GetAxis("Vertical") != 0)
-        {
-            axis += 30;
-        }
+        transform.position = position;
+        transform.rotation = rotation;
     }
 }

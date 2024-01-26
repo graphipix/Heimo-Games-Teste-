@@ -1,22 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class TurningCar : MonoBehaviour
 {
-    public WheelCollider frontleft = default;
-    public WheelCollider frontright = default;
-    public WheelCollider backleft = default;
-    public WheelCollider backright = default;
+    internal float velocity;
 
-    public float acceleration = default;
-    public float breakingForce = default;
+    [SerializeField] internal WheelCollider frontleft = default;
+    [SerializeField] internal WheelCollider frontright = default;
+    [SerializeField] internal WheelCollider backleft = default;
+    [SerializeField] internal WheelCollider backright = default;
 
-    public float currentacceleration = default;
-    public float currentbreakingForce = default;
+    [SerializeField] internal float acceleration = default;
+    [SerializeField] internal float breakingForce = default;
 
-    public float MaxTurnAngle = 15;
+    [SerializeField] internal float currentacceleration = default;
+    internal float currentbreakingForce = default;
+
+    internal float MaxTurnAngle = 15;
     float CurrentTurnAngle = 0f;
+
+    [SerializeField] private Transform Car = default;
 
     private void Start()
     {
@@ -57,14 +62,25 @@ public class TurningCar : MonoBehaviour
         frontright.motorTorque = currentacceleration;
         frontleft.motorTorque = currentacceleration;
 
+        //Back Wheel
+        backright.motorTorque = currentacceleration;
+        backleft.motorTorque = currentacceleration;
+
         frontleft.brakeTorque = currentbreakingForce;
         frontright.brakeTorque = currentbreakingForce;
         backleft.brakeTorque = currentbreakingForce;
         backright.brakeTorque = currentbreakingForce;
 
         CurrentTurnAngle = MaxTurnAngle * Input.GetAxis("Horizontal");
+        
         frontleft.steerAngle = CurrentTurnAngle;
         frontright.steerAngle = CurrentTurnAngle;
+
+        //Back Wheel
+        backleft.steerAngle = -CurrentTurnAngle;
+        backright.steerAngle = -CurrentTurnAngle;
+
+        velocity = frontright.rpm;
     }
 
     private void ComponentManager()
@@ -84,8 +100,23 @@ public class TurningCar : MonoBehaviour
         #region NewColor
         if (CarData.Painting)
         {
-            transform.GetChild(0).GetComponent<MeshRenderer>().material = material[1];
+            Car.GetComponent<MeshRenderer>().material = material[1];
         }
         #endregion
+    }
+
+    private void Update()
+    {
+        if (transform.rotation.eulerAngles.z > 10 || transform.rotation.eulerAngles.z < -10)
+        {
+            //transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
+        }
+
+        print(transform.rotation.eulerAngles.z);
+    }
+
+    public void GoToStore()
+    {
+        SceneManager.LoadScene("Store");
     }
 }
